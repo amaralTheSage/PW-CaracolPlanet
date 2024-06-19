@@ -11,7 +11,7 @@ function SnailCard({ snail }: SnailCardInterface) {
 
   return (
     <li className="shadow-lg shadow-gray-400">
-      <img src={snail.imgUrl} alt="" className="w-full" />
+      <img src={snail.imgUrl} alt="" className="w-full aspect-video" />
       <div className="p-2">
         <h1>Nome Popular: {snail.commonName}</h1>
         <h1>Espécie: {snail.species}</h1>

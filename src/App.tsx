@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import SnailCard from "./components/snailCard";
 import Dropdown from "./components/dropdown";
 import Header from "./components/Header";
+import RegisteringForm from "./components/RegisteringForm";
 
 export interface SnailInterface {
   imgUrl: string;
@@ -52,10 +53,11 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header caracois={caracois} onSetCaracois={setCaracois} />
 
       <main className=" w-4/5 m-auto ">
         <h3 className="my-3 font-semibold text-2xl tracking-wide">Confira:</h3>
+
         <ul className="grid grid-flexivel gap-5">
           {caracois.map((snail: SnailInterface) => {
             return <SnailCard snail={snail} />;
