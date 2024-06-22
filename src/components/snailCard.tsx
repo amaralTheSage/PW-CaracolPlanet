@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import { SnailInterface } from "../App";
 import { FaRegThumbsUp, FaThumbsUp } from "react-icons/fa6";
+import { Snail } from "../App";
 
-interface SnailCardInterface {
-  snail: SnailInterface;
-}
-
-function SnailCard({ snail }: SnailCardInterface) {
+function SnailCard({ snail }: { snail: Snail }) {
   const [isLiked, setIsLiked] = useState(false);
 
   return (

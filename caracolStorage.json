@@ -1,0 +1,30 @@
+[
+  {
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Helix_pomatia_89a.jpg/280px-Helix_pomatia_89a.jpg",
+    "commonName": "Escargot",
+    "species": "Helix pomatia",
+    "continent": "Europa",
+    "price": 330
+  },
+  {
+    "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXaajA39Tci1_DQyB6_r56w2AsE9aaUCRZD2rS6PaLJUN9UAdT",
+    "commonName": "Caramujo-gigante-africano",
+    "species": "Lissachatina fulica",
+    "continent": "África",
+    "price": 300
+  },
+  {
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Snail1web.jpg/280px-Snail1web.jpg",
+    "commonName": "Caracoleta",
+    "species": "Helix Aspersa",
+    "continent": "Mundo Antigo",
+    "price": 400
+  },
+  {
+    "imgUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/239125301/original.jpeg",
+    "commonName": "Caracol-de-Topo-Cortado",
+    "species": "Rumina Decollata",
+    "continent": "Redores do Mediterrâneo",
+    "price": 700
+  }
+]
