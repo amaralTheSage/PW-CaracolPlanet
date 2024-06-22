@@ -5,13 +5,13 @@ import SnailCard from "./components/snailCard";
 import Dropdown from "./components/dropdown";
 import Header from "./components/Header";
 
-export interface SnailInterface {
+export type Snail = {
   imgUrl: string;
   commonName: string;
   species: string;
   continent: string;
   price: number;
-}
+};
 
 // const snails = [
 //   {
@@ -50,16 +50,44 @@ function App() {
     }
   }, []);
 
+  const [pesquisaTermo, setPesquisaTermo] = useState("");
+  const [resultadosPesquisa, setResultadosPesquisa] = useState([]);
+
+  useEffect(() => {
+    const resultados = caracois.filter((c: Snail) =>
+      c.commonName.toLowerCase().includes(pesquisaTermo.toLowerCase())
+    );
+    setResultadosPesquisa(resultados);
+  }, [caracois, pesquisaTermo]);
+
   return (
     <>
       <Header />
 
       <main className=" w-4/5 m-auto ">
-        <h3 className="my-3 font-semibold text-2xl tracking-wide">Confira:</h3>
-        <ul className="grid grid-flexivel gap-5">
-          {caracois.map((snail: SnailInterface) => {
-            return <SnailCard snail={snail} />;
-          })}
+        <div className="flex justify-between items-center">
+          <h3 className="my-3 font-semibold text-2xl tracking-wide">
+            Confira:
+          </h3>
+          <div className="border rounded-sm flex h-8 p-1 ">
+            <input
+              type="text"
+              className="focus:outline-none"
+              onChange={(e) => {
+                setPesquisaTermo(e.target.value);
+              }}
+            />
+            <img src="search-icon.png" alt="" />
+          </div>
+        </div>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          {resultadosPesquisa
+            ? resultadosPesquisa.map((c) => {
+                return <SnailCard snail={c} />;
+              })
+            : caracois.map((snail: Snail) => {
+                return <SnailCard snail={snail} />;
+              })}
         </ul>
       </main>
     </>
