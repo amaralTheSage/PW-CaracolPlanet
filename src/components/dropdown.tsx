@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Snail } from "../App";
+import { toast } from "sonner";
 
-function Dropdown({ caracois, onSetCaracois }) {
+function Dropdown({ caracois, onSetCaracois }: { caracois: Snail[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { register, handleSubmit, reset, setFocus } = useForm();
 
-  function cadastraCaracol(dados) {
+  function cadastraCaracol(data) {
     const caracois2 = [...caracois];
     caracois2.push({
-      commonName: dados.commonName,
-      species: dados.species,
-      continent: dados.continent,
-      imgUrl: dados.imgUrl,
-      price: dados.price,
+      commonName: data.commonName,
+      species: data.species,
+      continent: data.continent,
+      imgUrl: data.imgUrl,
+      price: data.price,
     });
 
     onSetCaracois(caracois2);
-    // toast.success("Ok! Filme Cadastrado com Sucesso");
+    toast.success("Caracol cadastrado com sucesso!");
 
     setFocus("commonName");
     reset();
@@ -69,7 +71,7 @@ function Dropdown({ caracois, onSetCaracois }) {
               <label htmlFor="continent">Origem:</label>
               <input
                 type="text"
-                id="continent"
+                id="continentit pull"
                 required
                 {...register("continent")}
                 className="border border-gray-400 rounded-sm"

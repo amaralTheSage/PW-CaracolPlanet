@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import SnailCard from "./components/snailCard";
 import Dropdown from "./components/dropdown";
 import Header from "./components/Header";
+import { Toaster } from "sonner";
 
 export type Snail = {
   imgUrl: string;
@@ -45,7 +46,7 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem("caracois")) {
-      const caracois2 = JSON.parse(localStorage.getItem("caracois"));
+      const caracois2 = JSON.parse(localStorage.getItem("caracois")!);
       setCaracois(caracois2);
     }
   }, []);
@@ -62,7 +63,8 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Toaster richColors position="top-right" />
+      <Header caracois={caracois} onSetCaracois={setCaracois} />
 
       <main className=" w-4/5 m-auto ">
         <div className="flex justify-between items-center">
@@ -86,7 +88,7 @@ function App() {
                 return <SnailCard snail={c} />;
               })
             : caracois.map((snail: Snail) => {
-                return <SnailCard snail={snail} />;
+                return <SnailCard snail={snail} key={snail.species} />;
               })}
         </ul>
       </main>

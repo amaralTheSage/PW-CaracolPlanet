@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { FaRegThumbsUp, FaThumbsUp } from "react-icons/fa6";
 import { Snail } from "../App";
+import { toast } from "sonner";
 
 function SnailCard({ snail }: { snail: Snail }) {
   const [isLiked, setIsLiked] = useState(false);
 
   return (
-    <li className="shadow-lg shadow-gray-400 min-h-[320px] flex flex-col justify-between">
+    <li
+      className="shadow-lg shadow-gray-400 min-h-[320px] flex flex-col justify-between"
+
+    >
       <div>
         <img
           src={snail.imgUrl}
