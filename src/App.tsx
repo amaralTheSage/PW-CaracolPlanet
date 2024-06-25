@@ -14,33 +14,6 @@ export type Snail = {
   price: number;
 };
 
-// const snails = [
-//   {
-//     imgUrl:
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Helix_pomatia_89a.jpg/280px-Helix_pomatia_89a.jpg",
-//     commonName: "Scargot",
-//     species: "Helix pomatia",
-//     continent: "Europa",
-//     price: 330,
-//   },
-//   {
-//     imgUrl:
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Helix_pomatia_89a.jpg/280px-Helix_pomatia_89a.jpg",
-//     commonName: "Scargot",
-//     species: "Helix pomatia",
-//     continent: "Europa",
-//     price: 330,
-//   },
-//   {
-//     imgUrl:
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Helix_pomatia_89a.jpg/280px-Helix_pomatia_89a.jpg",
-//     commonName: "Scargot",
-//     species: "Helix pomatia",
-//     continent: "Europa",
-//     price: 330,
-//   },
-// ];
-
 function App() {
   const [caracois, setCaracois] = useState([]);
 
@@ -85,10 +58,26 @@ function App() {
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {resultadosPesquisa
             ? resultadosPesquisa.map((c) => {
-                return <SnailCard snail={c} />;
+                const index = caracois.indexOf(c);
+                return (
+                  <SnailCard
+                    snail={c}
+                    caracois={caracois}
+                    onSetCaracois={setCaracois}
+                    i={index}
+                  />
+                );
               })
-            : caracois.map((snail: Snail) => {
-                return <SnailCard snail={snail} key={snail.species} />;
+            : caracois.map((snail) => {
+                const index = caracois.indexOf(snail);
+                return (
+                  <SnailCard
+                    snail={snail}
+                    caracois={caracois}
+                    onSetCaracois={setCaracois}
+                    i={index}
+                  />
+                );
               })}
         </ul>
       </main>
